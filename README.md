@@ -67,6 +67,9 @@ If you want `JSWeather` to help you handle finding the users current location, i
 <br><br>
 <h3>Methods/Blocks</h3>
 Here is a list of block methods `JSWeather` offers, displaying the basic usage and return value :
+<br><br>
+
+<h3>Current Weather</h3>
 ```Objective-C
 - (void)queryForCurrentWeatherWithCity:(NSString *)city state:(NSString *)state
                                  block:(void (^)(JSCurrentWeatherObject *object, NSError *error))completionBlock;
@@ -102,7 +105,8 @@ JSWeather *weather = [JSWeather sharedInstance];
 
 
 <br><br>
-<h3>Note</h3>
+<h3>Daily Forecast</h3>
+<h4>Note</h4>
 When using this block, you can only specify `numberOfDays` as an integer between 1 and 16. If you exceed either integer, the block will return an error object.
 ```Objective-C
 - (void)queryForDailyForecastWithNumberOfDays:(NSInteger)numberOfDays city:(NSString *)city state:(NSString *)state
@@ -156,6 +160,11 @@ JSWeather *weather = [JSWeather sharedInstance];
 ```
 
 <br><br>
+
+<h3>Hourly Forecast</h3>
+<h4>NOTE</h4>
+Hourly Forecasts will only return 3 hour increments... Sorry about that... Apparently the API doesn't allow for more frequent forecasts
+
 ```Objective-C
 - (void)queryForHourlyForecastWithCity:(NSString *)city state:(NSString *)state
                                  block:(JSWeatherBlock)block;
@@ -209,9 +218,58 @@ JSWeather *weather = [JSWeather sharedInstance];
 ...
 ```
 
+<br><br>
+<h3>Historical Data</h3>
+```Objective-C
+- (void)queryForHistoricalDataWithCity:(NSString *)city state:(NSString *)state
+                                 block:(JSWeatherBlock)block;
+```
 
-<h3>NOTE</h3>
-Hourly Forecasts will only return 3 hour increments... Sorry about that... Apparently the API doesn't allow for more frequent forecasts
+```Objective-C
+JSWeather *weather = [JSWeather sharedInstance];
+[weather setTemperatureMetric:kJSFahrenheit];
+[weather queryForHistoricalDataWithCity:@"San Francisco" state:@"CA" block:^(NSArray *objects, NSError *error) {
+    for (JSHistoricalDataObject * obj in objects) {
+        NSLog(@"%@", obj.objects);
+    }
+}];
+```
+
+```
+2014-12-05 14:15:02.201 Example[2474:59398] {
+    "beginning_wind_direction" = NNE;
+    cloudiness = "75.000000";
+    "current_temp" = "44.383999";
+    date = "2014-12-04 19:37:11 +0000";
+    "ending_wind_direction" = N;
+    humidity = 36;
+    image = "<UIImage: 0x7f8371f0b960>";
+    "max_temp" = "46.399990";
+    "min_temp" = "40.999989";
+    pressure = "1028.000000";
+    "weather_description" = "Broken Clouds";
+    "wind_direction" = NNE;
+    "wind_speed" = "4.600000";
+}
+2014-12-05 14:15:02.202 Example[2474:59398] {
+    "beginning_wind_direction" = N;
+    cloudiness = "90.000000";
+    "current_temp" = "43.268005";
+    date = "2014-12-04 20:36:24 +0000";
+    "ending_wind_direction" = N;
+    humidity = 39;
+    image = "<UIImage: 0x7f8371d74ea0>";
+    "max_temp" = "44.599991";
+    "min_temp" = "39.199989";
+    pressure = "1028.000000";
+    "weather_description" = "Overcast Clouds";
+    "wind_direction" = NNE;
+    "wind_speed" = "4.100000";
+}
+...
+...
+...
+```
 
 <br><br>
 <h2>Requirements</h2>
