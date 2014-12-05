@@ -24,6 +24,7 @@
 @property (nonatomic) float JSTemporaryMinTemperature;
 @property (nonatomic) NSString *JSWeatherDescription;
 @property (nonatomic) NSString *JSWindDirection;
+@property (nonatomic) float JSWindDirectionFloat;
 @property (nonatomic) float JSWindSpeed;
 @property (nonatomic) NSDate *JSSunriseDate;
 @property (nonatomic) NSDate *JSSunsetDate;

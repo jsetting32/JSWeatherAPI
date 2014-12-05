@@ -44,6 +44,7 @@
     self.JSRain = [[[dict objectForKey:@"rain"] objectForKey:@"3h"] floatValue];
     self.JSWeatherDescription = [[[[dict objectForKey:@"weather"] firstObject] objectForKey:@"description"] capitalizedString];
     self.JSWindDirection = [JSWeatherUtility handleWindDirection:[[[dict objectForKey:@"wind"] objectForKey:@"deg"] floatValue]];
+    self.JSWindDirectionFloat = [[[dict objectForKey:@"wind"] objectForKey:@"deg"] floatValue];
     self.JSWindSpeed = [[[dict objectForKey:@"wind"] objectForKey:@"speed"] floatValue];
     self.objects = [NSDictionary dictionaryWithObjects:@[self.JSWeatherImage,
                                                          [NSString stringWithFormat:@"%f", self.JSCloudiness],
@@ -58,10 +59,11 @@
                                                          [NSString stringWithFormat:@"%f", self.JSRain],
                                                          self.JSWeatherDescription,
                                                          self.JSWindDirection,
+                                                         [NSString stringWithFormat:@"%f", self.JSWindDirectionFloat],
                                                          [NSString stringWithFormat:@"%f", self.JSWindSpeed]]
                                                forKeys:@[@"image",
                                                          @"cloudiness",
-                                                         @"hourly_date",
+                                                         @"date",
                                                          @"ground_level",
                                                          @"humidity",
                                                          @"pressure",
@@ -72,6 +74,7 @@
                                                          @"percipitaton",
                                                          @"description",
                                                          @"wind_direction",
+                                                         @"wind_direction_float",
                                                          @"wind_speed"]];
     return self;
 }
