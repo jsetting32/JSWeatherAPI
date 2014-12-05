@@ -12,7 +12,7 @@ If you want to simply get the current weather for a city, you can do it like so:
 ```Objective-C
 [JSWeather *weather = [JSWeather sharedInstance];
 [weather setTemperatureMetric:kJSFahrenheit];
-[weather queryForCurrentWeatherAndImageByCoordinates:@"San Francisco" state:@"CA" block:^(JSCurrentWeatherObject *object, NSError *error) {
+[weather queryForCurrentWeatherWithCity:@"San Francisco" state:@"CA" block:^(JSCurrentWeatherObject *object, NSError *error) {
     NSLog(@"%@", object.objects);
 }];
 ```
@@ -57,7 +57,7 @@ If you want `JSWeather` to help you handle finding the users current location, i
     NSString *city = [dict objectForKey:@"city"];
     NSString *state = [dict objectForKey:@"state"];
     
-    [weather queryForCurrentWeatherAndImageByCoordinates:city state:state block:^(JSCurrentWeatherObject *object, NSError *error) {
+    [weather queryForCurrentWeatherWithCity:city state:state block:^(JSCurrentWeatherObject *object, NSError *error) {
         NSLog(@"%@", object.objects);
     }];
 }
@@ -68,14 +68,14 @@ If you want `JSWeather` to help you handle finding the users current location, i
 <h3>Methods/Blocks</h3>
 Here is a list of block methods `JSWeather` offers, displaying the basic usage and return value :
 ```Objective-C
-- (void)queryForCurrentWeatherAndImageByCoordinates:(NSString *)city state:(NSString *)state
-                                              block:(void (^)(JSCurrentWeatherObject *object, NSError *error))completionBlock;
+- (void)queryForCurrentWeatherWithCity:(NSString *)city state:(NSString *)state
+                                 block:(void (^)(JSCurrentWeatherObject *object, NSError *error))completionBlock;
 ```
 
 ```Objective-C
 JSWeather *weather = [JSWeather sharedInstance];
 [weather setTemperatureMetric:kJSKelvin];
-[weather queryForCurrentWeatherAndImageByCoordinates:@"San Francisco" state:@"CA" block:^(JSCurrentWeatherObject *object, NSError *error) {
+[weather queryForCurrentWeatherWithCity:@"San Francisco" state:@"CA" block:^(JSCurrentWeatherObject *object, NSError *error) {
     NSLog(@"%@", object.objects);
 }];
 ```
@@ -157,14 +157,14 @@ JSWeather *weather = [JSWeather sharedInstance];
 
 <br><br>
 ```Objective-C
-- (void)queryForHourlyForecast:(NSString *)city state:(NSString *)state
-                         block:(JSWeatherBlock)block;
+- (void)queryForHourlyForecastWithCity:(NSString *)city state:(NSString *)state
+                                 block:(JSWeatherBlock)block;
 ```
 
 ```Objective-C
 JSWeather *weather = [JSWeather sharedInstance];
 [weather setTemperatureMetric:kJSCelsius];
-[weather queryForHourlyForecast:@"San Francisco" state:@"CA" block:^(NSArray *objects, NSError *error) {
+[weather queryForHourlyForecastWithCity:@"San Francisco" state:@"CA" block:^(NSArray *objects, NSError *error) {
     for (JSHourlyForecastObject * obj in objects) {
         NSLog(@"%@", obj.objects);
     }
