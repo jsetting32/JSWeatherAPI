@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E394DD31A325E3F00F9CC66 /* JSHistoricalDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E394DD21A325E3F00F9CC66 /* JSHistoricalDataObject.m */; };
 		1E5DCAF71A31A07A0055DBA1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5DCAF61A31A07A0055DBA1 /* main.m */; };
 		1E5DCAFA1A31A07A0055DBA1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5DCAF91A31A07A0055DBA1 /* AppDelegate.m */; };
 		1E5DCB001A31A07A0055DBA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E5DCAFE1A31A07A0055DBA1 /* Main.storyboard */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E394DD11A325E3F00F9CC66 /* JSHistoricalDataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSHistoricalDataObject.h; sourceTree = "<group>"; };
+		1E394DD21A325E3F00F9CC66 /* JSHistoricalDataObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSHistoricalDataObject.m; sourceTree = "<group>"; };
 		1E5DCAF11A31A07A0055DBA1 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E5DCAF51A31A07A0055DBA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E5DCAF61A31A07A0055DBA1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -90,6 +93,8 @@
 				1E5DCB261A31A0E50055DBA1 /* JSDailyForecastObject.m */,
 				1E5DCB271A31A0E50055DBA1 /* JSHourlyForecastObject.h */,
 				1E5DCB281A31A0E50055DBA1 /* JSHourlyForecastObject.m */,
+				1E394DD11A325E3F00F9CC66 /* JSHistoricalDataObject.h */,
+				1E394DD21A325E3F00F9CC66 /* JSHistoricalDataObject.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 				1E5DCB351A31A0E50055DBA1 /* JSWeatherUtility.m in Sources */,
 				1E5DCB1F1A31A0CE0055DBA1 /* ViewController.m in Sources */,
 				1E5DCB331A31A0E50055DBA1 /* JSWeather.m in Sources */,
+				1E394DD31A325E3F00F9CC66 /* JSHistoricalDataObject.m in Sources */,
 				1E5DCAFA1A31A07A0055DBA1 /* AppDelegate.m in Sources */,
 				1E5DCAF71A31A07A0055DBA1 /* main.m in Sources */,
 				1E5DCB341A31A0E50055DBA1 /* JSWeatherConstants.m in Sources */,

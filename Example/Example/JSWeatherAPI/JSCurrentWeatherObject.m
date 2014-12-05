@@ -37,6 +37,7 @@
     
     self.JSWeatherDescription = [[[[dict objectForKey:@"weather"] firstObject] objectForKey:@"description"] capitalizedString];
     self.JSWindDirection = [JSWeatherUtility handleWindDirection:[[[dict objectForKey:@"wind"] objectForKey:@"speed"] floatValue]];
+    self.JSWindDirectionFloat = [[[dict objectForKey:@"wind"] objectForKey:@"speed"] floatValue];
     self.JSWindSpeed = [[[dict objectForKey:@"wind"] objectForKey:@"speed"] floatValue];
     self.JSLocationLatitude = [[[dict objectForKey:@"coord"] objectForKey:@"lat"] floatValue];
     self.JSLocationLongitude = [[[dict objectForKey:@"coord"] objectForKey:@"lon"] floatValue];
@@ -52,6 +53,7 @@
                                                          [NSString stringWithFormat:@"%f", self.JSTemporaryMinTemperature],
                                                          self.JSWeatherDescription,
                                                          self.JSWindDirection,
+                                                         [NSString stringWithFormat:@"%f", self.JSWindDirectionFloat],
                                                          [NSString stringWithFormat:@"%f", self.JSWindSpeed],
                                                          [NSString stringWithFormat:@"%f", self.JSLocationLatitude],
                                                          [NSString stringWithFormat:@"%f", self.JSLocationLongitude],
@@ -67,6 +69,7 @@
                                                          @"min_temp",
                                                          @"weather",
                                                          @"wind_direction",
+                                                         @"wind_direction_float",
                                                          @"wind_speed",
                                                          @"location_latitude",
                                                          @"location_longitude",

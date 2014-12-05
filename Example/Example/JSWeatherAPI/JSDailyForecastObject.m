@@ -22,6 +22,7 @@
         
     self.JSWeatherImage = [dict objectForKey:@"image"];
     self.JSWindDirection = [JSWeatherUtility handleWindDirection:[[dict objectForKey:@"deg"] floatValue]];
+    self.JSWindDirectionFloat = [[dict objectForKey:@"deg"] floatValue];
     self.JSForecastDate = [NSDate dateWithTimeIntervalSince1970:[[dict objectForKey:@"dt"] intValue]];
     self.JSHumidity = [[dict objectForKey:@"humidity"] intValue];
     self.JSPressure = [[dict objectForKey:@"pressure"] floatValue];
@@ -55,6 +56,7 @@
     self.JSWeatherDescription = [[[[dict objectForKey:@"weather"] firstObject] objectForKey:@"description"] capitalizedString];
     self.objects = [NSDictionary dictionaryWithObjects:@[self.JSWeatherImage,
                                                          self.JSWindDirection,
+                                                         [NSString stringWithFormat:@"%f", self.JSWindDirectionFloat],
                                                          self.JSForecastDate,
                                                          [NSString stringWithFormat:@"%f", self.JSCloudiness],
                                                          [NSString stringWithFormat:@"%i", self.JSHumidity],
@@ -70,6 +72,7 @@
                                                          self.JSWeatherDescription]
                                                forKeys:@[@"image",
                                                          @"wind_direction",
+                                                         @"wind_direction_float",
                                                          @"date",
                                                          @"cloudiness",
                                                          @"humidity",

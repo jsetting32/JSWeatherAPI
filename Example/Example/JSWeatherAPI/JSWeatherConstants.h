@@ -12,11 +12,13 @@ extern NSString * const kJSWeatherURL;
 extern NSString * const kJSWeatherAPIURL;
 extern NSString * const kJSWeatherAPITypeData;
 extern NSString * const kJSWeatherAPITypeImage;
+extern NSString * const kJSWeatherAPITypeHistory;
 extern NSString * const kJSWeatherAPIVersion;
 extern NSString * const kJSWeatherAPIQueryWeather;
 extern NSString * const kJSWeatherAPIQueryDailyForecast;
 extern NSString * const kJSWeatherAPIQueryDailyForecastCount;
 extern NSString * const kJSWeatherAPIQueryHourlyForecast;
+extern NSString * const kJSWeatherAPIQueryHistoricalData;
 
 typedef void (^JSWeatherBlock)(NSArray *objects, NSError *error);
 

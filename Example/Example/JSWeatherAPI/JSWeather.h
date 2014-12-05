@@ -12,6 +12,7 @@
 #import "JSDailyForecastObject.h"
 #import "JSHourlyForecastObject.h"
 #import "JSWeatherConstants.h"
+#import "JSHistoricalDataObject.h"
 
 enum {
     kJSKelvin = 0,
@@ -86,6 +87,18 @@ enum {
  (e.g 'CA' for Canada, 'CA' for California, or 'GB' for Great Britain)
  */
 - (void)queryForHourlyForecastWithCity:(NSString *)city state:(NSString *)state
+                                 block:(JSWeatherBlock)block;
+
+/*!
+ @abstract Queries the OpenWeatherMap API for the locations historical data weather.
+ 
+ @discussion The historical weather of the location passed will be returned within the block. The state parameter is very flexible.
+ 
+ @param city The city that the client is wanting to receive weather for (e.g 'San Francisco')
+ @param state The state/country/region that the client is wanting to receive weather for
+ (e.g 'CA' for Canada, 'CA' for California, or 'GB' for Great Britain)
+ */
+- (void)queryForHistoricalDataWithCity:(NSString *)city state:(NSString *)state
                                  block:(JSWeatherBlock)block;
 @end
 
