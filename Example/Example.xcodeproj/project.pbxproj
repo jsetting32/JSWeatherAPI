@@ -81,6 +81,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E394DD01A324FBC00F9CC66 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1E5DCB231A31A0E50055DBA1 /* JSCurrentWeatherObject.h */,
+				1E5DCB241A31A0E50055DBA1 /* JSCurrentWeatherObject.m */,
+				1E5DCB251A31A0E50055DBA1 /* JSDailyForecastObject.h */,
+				1E5DCB261A31A0E50055DBA1 /* JSDailyForecastObject.m */,
+				1E5DCB271A31A0E50055DBA1 /* JSHourlyForecastObject.h */,
+				1E5DCB281A31A0E50055DBA1 /* JSHourlyForecastObject.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		1E5DCAE81A31A07A0055DBA1 = {
 			isa = PBXGroup;
 			children = (
@@ -144,14 +157,9 @@
 		1E5DCB201A31A0E50055DBA1 /* JSWeatherAPI */ = {
 			isa = PBXGroup;
 			children = (
+				1E394DD01A324FBC00F9CC66 /* Models */,
 				1E5DCB211A31A0E50055DBA1 /* JSCurrentLocation.h */,
 				1E5DCB221A31A0E50055DBA1 /* JSCurrentLocation.m */,
-				1E5DCB231A31A0E50055DBA1 /* JSCurrentWeatherObject.h */,
-				1E5DCB241A31A0E50055DBA1 /* JSCurrentWeatherObject.m */,
-				1E5DCB251A31A0E50055DBA1 /* JSDailyForecastObject.h */,
-				1E5DCB261A31A0E50055DBA1 /* JSDailyForecastObject.m */,
-				1E5DCB271A31A0E50055DBA1 /* JSHourlyForecastObject.h */,
-				1E5DCB281A31A0E50055DBA1 /* JSHourlyForecastObject.m */,
 				1E5DCB291A31A0E50055DBA1 /* JSWeather.h */,
 				1E5DCB2A1A31A0E50055DBA1 /* JSWeather.m */,
 				1E5DCB2B1A31A0E50055DBA1 /* JSWeatherConstants.h */,
@@ -462,6 +470,7 @@
 				1E5DCB161A31A07A0055DBA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1E5DCB171A31A07A0055DBA1 /* Build configuration list for PBXNativeTarget "ExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +479,7 @@
 				1E5DCB191A31A07A0055DBA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

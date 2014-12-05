@@ -34,7 +34,6 @@
                                    indicator.frame.size.width, indicator.frame.size.height)];
     [indicator startAnimating];
     [self.view addSubview:indicator];
-    
 }
 
 - (void)JSWeather:(JSWeather *)weather didReceiveCurrentLocation:(NSDictionary *)dict
@@ -42,7 +41,9 @@
     
     NSString *city = [dict objectForKey:@"city"];
     NSString *state = [dict objectForKey:@"state"];
-    [weather queryForDailyForecastWithNumberOfDays:16 city:city state:state block:^(NSArray *objects, NSError *error) {
+    
+    /*
+    [weather queryForDailyForecastWithNumberOfDays:14 city:city state:state block:^(NSArray *objects, NSError *error) {
         [indicator stopAnimating];
         if (error) {
             [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
@@ -53,6 +54,34 @@
             NSLog(@"%@", obj.objects);
         }
     }];
+    */
+    
+    /*
+    [weather queryForCurrentWeatherWithCity:city state:state block:^(JSCurrentWeatherObject *object, NSError *error) {
+        [indicator stopAnimating];
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+            return;
+        }
+        
+        NSLog(@"%@", object.objects);
+    }];
+    */
+    
+    /*
+    [weather queryForHourlyForecastWithCity:city state:state block:^(NSArray *objects, NSError *error) {
+        [indicator stopAnimating];
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+            return;
+        }
+        
+        for (JSHourlyForecastObject * obj in objects) {
+            NSLog(@"%@", obj.objects);
+        }
+    }];
+    */
+    
 }
 
 - (void)JSWeather:(JSWeather *)weather didReceiveCurrentLocationError:(NSError *)error

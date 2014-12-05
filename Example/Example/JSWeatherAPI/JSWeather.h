@@ -60,8 +60,8 @@ enum {
  @param state The state/country/region that the client is wanting to receive weather for 
  (e.g 'CA' for Canada, 'CA' for California, or 'GB' for Great Britain)
  */
-- (void)queryForCurrentWeatherAndImageByCoordinates:(NSString *)city state:(NSString *)state
-                                              block:(void (^)(JSCurrentWeatherObject *object, NSError *error))completionBlock;
+- (void)queryForCurrentWeatherWithCity:(NSString *)city state:(NSString *)state
+                                 block:(void (^)(JSCurrentWeatherObject *object, NSError *error))completionBlock;
 
 /*!
  @abstract Queries the OpenWeatherMap API for the locations daily forecast weather.
@@ -85,8 +85,8 @@ enum {
  @param state The state/country/region that the client is wanting to receive weather for
  (e.g 'CA' for Canada, 'CA' for California, or 'GB' for Great Britain)
  */
-- (void)queryForHourlyForecast:(NSString *)city state:(NSString *)state
-                         block:(JSWeatherBlock)block;
+- (void)queryForHourlyForecastWithCity:(NSString *)city state:(NSString *)state
+                                 block:(JSWeatherBlock)block;
 @end
 
 @protocol JSWeatherDelegate <NSObject>

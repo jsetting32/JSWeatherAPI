@@ -10,14 +10,14 @@
 	<string>Example</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>F2C6E6FE8FA286F0A18CB12D64EFA6C825F1E2A1</key>
+		<key>75456BB30BF9087EA03B88E2CEFAC47247E2842C</key>
 		<string>https://github.com/jsetting32/JSWeatherAPI.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Example/Example.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>F2C6E6FE8FA286F0A18CB12D64EFA6C825F1E2A1</key>
+		<key>75456BB30BF9087EA03B88E2CEFAC47247E2842C</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>F2C6E6FE8FA286F0A18CB12D64EFA6C825F1E2A1</string>
+	<string>75456BB30BF9087EA03B88E2CEFAC47247E2842C</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>F2C6E6FE8FA286F0A18CB12D64EFA6C825F1E2A1</string>
+			<string>75456BB30BF9087EA03B88E2CEFAC47247E2842C</string>
 			<key>IDESourceControlWCCName</key>
 			<string>JSWeatherAPI</string>
 		</dict>

@@ -33,8 +33,8 @@
     [self.JSLocation getCurrentLocation];
 }
 
-- (void)queryForCurrentWeatherAndImageByCoordinates:(NSString *)city state:(NSString *)state
-                                              block:(void (^)(JSCurrentWeatherObject *object, NSError *error))completionBlock
+- (void)queryForCurrentWeatherWithCity:(NSString *)city state:(NSString *)state
+                                 block:(void (^)(JSCurrentWeatherObject *object, NSError *error))completionBlock
 {
     NSString *query = [[NSString stringWithFormat:@"%@%@%@%@%@,%@",
                         kJSWeatherAPIURL, kJSWeatherAPITypeData, kJSWeatherAPIVersion, kJSWeatherAPIQueryWeather,city, state] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -91,12 +91,13 @@
                                }
                                
                                NSMutableDictionary * json = [NSMutableDictionary dictionaryWithDictionary:[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error]];
-                               
                                NSMutableArray *arr = [NSMutableArray array];
+                               
                                for (NSDictionary * dict in [json objectForKey:@"list"]) {
                                    NSString *query = [[NSString stringWithFormat:@"%@%@%@.png",
                                                        kJSWeatherURL, kJSWeatherAPITypeImage, [[[dict objectForKey:@"weather"] firstObject] objectForKey:@"icon"]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
                                    NSMutableDictionary *d = [NSMutableDictionary dictionaryWithDictionary:dict];
+
                                    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:query]]
                                                                       queue:[NSOperationQueue mainQueue]
                                                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
@@ -109,7 +110,8 @@
                                                               [d setObject:[UIImage imageWithData:data] forKey:@"image"];
                                                               JSDailyForecastObject *object = [[JSDailyForecastObject alloc] initWithData:d temperatureConversion:self.temperatureMetric];
                                                               [arr addObject:object];
-                                                              if ([arr count] == numberOfDays) {
+                                                              
+                                                              if ([arr count] == [[json objectForKey:@"list"] count]) {
                                                                   
                                                                   [arr sortUsingDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"objects.date"  ascending:YES]]];
 
@@ -122,8 +124,8 @@
                            }];
 }
 
-- (void)queryForHourlyForecast:(NSString *)city state:(NSString *)state
-                         block:(void (^)(NSArray *objects, NSError *error))completionBlock
+- (void)queryForHourlyForecastWithCity:(NSString *)city state:(NSString *)state
+                                 block:(void (^)(NSArray *objects, NSError *error))completionBlock
 {
     NSString *query = [[NSString stringWithFormat:@"%@%@%@%@%@,%@",
                         kJSWeatherAPIURL, kJSWeatherAPITypeData, kJSWeatherAPIVersion, kJSWeatherAPIQueryHourlyForecast,city, state] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
