@@ -209,6 +209,55 @@ JSWeather *weather = [JSWeather sharedInstance];
 ...
 ```
 
+<br><br>
+```Objective-C
+- (void)queryForHistoricalDataWithCity:(NSString *)city state:(NSString *)state
+                                 block:(JSWeatherBlock)block;
+```
+
+```Objective-C
+JSWeather *weather = [JSWeather sharedInstance];
+[weather setTemperatureMetric:kJSFahrenheit];
+[weather queryForHistoricalDataWithCity:@"San Francisco" state:@"CA" block:^(NSArray *objects, NSError *error) {
+    for (JSHistoricalDataObject * obj in objects) {
+        NSLog(@"%@", obj.objects);
+    }
+}];
+```
+
+```
+2014-12-05 14:15:02.201 Example[2474:59398] {
+    "beginning_wind_direction" = NNE;
+    cloudiness = "75.000000";
+    "current_temp" = "44.383999";
+    date = "2014-12-04 19:37:11 +0000";
+    "ending_wind_direction" = N;
+    humidity = 36;
+    image = "<UIImage: 0x7f8371f0b960>";
+    "max_temp" = "46.399990";
+    "min_temp" = "40.999989";
+    pressure = "1028.000000";
+    "weather_description" = "Broken Clouds";
+    "wind_direction" = NNE;
+    "wind_speed" = "4.600000";
+}
+2014-12-05 14:15:02.202 Example[2474:59398] {
+    "beginning_wind_direction" = N;
+    cloudiness = "90.000000";
+    "current_temp" = "43.268005";
+    date = "2014-12-04 20:36:24 +0000";
+    "ending_wind_direction" = N;
+    humidity = 39;
+    image = "<UIImage: 0x7f8371d74ea0>";
+    "max_temp" = "44.599991";
+    "min_temp" = "39.199989";
+    pressure = "1028.000000";
+    "weather_description" = "Overcast Clouds";
+    "wind_direction" = NNE;
+    "wind_speed" = "4.100000";
+}
+```
+
 
 <h3>NOTE</h3>
 Hourly Forecasts will only return 3 hour increments... Sorry about that... Apparently the API doesn't allow for more frequent forecasts
