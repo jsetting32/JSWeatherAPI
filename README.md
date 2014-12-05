@@ -67,6 +67,9 @@ If you want `JSWeather` to help you handle finding the users current location, i
 <br><br>
 <h3>Methods/Blocks</h3>
 Here is a list of block methods `JSWeather` offers, displaying the basic usage and return value :
+<br><br>
+
+<h3>Current Weather</h3>
 ```Objective-C
 - (void)queryForCurrentWeatherWithCity:(NSString *)city state:(NSString *)state
                                  block:(void (^)(JSCurrentWeatherObject *object, NSError *error))completionBlock;
@@ -102,7 +105,8 @@ JSWeather *weather = [JSWeather sharedInstance];
 
 
 <br><br>
-<h3>Note</h3>
+<h3>Daily Forecast</h3>
+<h4>Note</h4>
 When using this block, you can only specify `numberOfDays` as an integer between 1 and 16. If you exceed either integer, the block will return an error object.
 ```Objective-C
 - (void)queryForDailyForecastWithNumberOfDays:(NSInteger)numberOfDays city:(NSString *)city state:(NSString *)state
@@ -156,6 +160,11 @@ JSWeather *weather = [JSWeather sharedInstance];
 ```
 
 <br><br>
+
+<h3>Hourly Forecast</h3>
+<h4>NOTE</h4>
+Hourly Forecasts will only return 3 hour increments... Sorry about that... Apparently the API doesn't allow for more frequent forecasts
+
 ```Objective-C
 - (void)queryForHourlyForecastWithCity:(NSString *)city state:(NSString *)state
                                  block:(JSWeatherBlock)block;
@@ -210,6 +219,7 @@ JSWeather *weather = [JSWeather sharedInstance];
 ```
 
 <br><br>
+<h3>Historical Data</h3>
 ```Objective-C
 - (void)queryForHistoricalDataWithCity:(NSString *)city state:(NSString *)state
                                  block:(JSWeatherBlock)block;
@@ -260,10 +270,6 @@ JSWeather *weather = [JSWeather sharedInstance];
 ...
 ...
 ```
-
-
-<h3>NOTE</h3>
-Hourly Forecasts will only return 3 hour increments... Sorry about that... Apparently the API doesn't allow for more frequent forecasts
 
 <br><br>
 <h2>Requirements</h2>
